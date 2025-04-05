@@ -34,20 +34,20 @@ This project is aimed at showcasing web development skills and AI integration fo
 ## Project Structure
 
 ```bash
-📂 Project Root
+📂 src\app 
 ├── 📂 components               # React components
-│   ├── Chatbot.js              # AI chatbot UI component
-│   ├── WebcamScanner.js        # Webcam scanning component
-├── 📂 pages                    # Next.js pages
-│   ├── index.js                # Home page (webcam and chatbot)
+│   ├── Chatbot.tsx              # AI chatbot UI component
+│   ├── ScanResult.tsx           # Webcam Scan Result UI component and Logic
+│   ├── TextToSpeech.tsx        # Google TTS ui component and logic
+├── page.tsx                    # Home page (webcam and chatbot)
+├── layout.tsx                  # layout for rendering pages
+├── global.css                  # css file, global imports and simple animation stuff
 ├── 📂 public                   # Public assets
-│   ├── images                  # Static images for UI
-├── 📂 styles                   # Global styles
-│   ├── globals.css             # Main CSS file
-├── 📂 utils                    # Helper functions
-│   ├── aiIntegration.js        # AI interaction logic
-│   ├── webcamUtils.js          # Webcam functionality helpers
-├── 📂 .env.local               # Local environment variables (e.g., API keys)
+│   ├── screenshots              # Static images + lottie file for UI
+├── 📂 api                      # api logic functions
+│   ├── chat/route.ts           # Google gemini api
+│   ├── text-to-speech/route.ts  # Google TTS api
+├── 📂 .env.local               # create for your own API keys
 
 
 ## Run Locally
