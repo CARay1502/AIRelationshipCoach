@@ -48,7 +48,7 @@ This project is aimed at showcasing web development skills and AI integration fo
 │   ├── chat/route.ts           # Google gemini api
 │   ├── text-to-speech/route.ts  # Google TTS api
 ├── 📂 .env.local               # create for your own API keys
-
+```
 
 ## Run Locally
 
