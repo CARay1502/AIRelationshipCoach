@@ -1,6 +1,6 @@
 # AI Relationship Coach
 
-An interactive AI-powered relationship coach designed to provide dating advice and ratings through webcam-based user interaction and a chatbot interface.
+An interactive AI-powered relationship coach designed to provide dating advice and ratings through webcam-based user interaction and a chatbot interface. **NOT INTENDED FOR REAL WORLD RELATIONSHIP ADVICE.**
 
 ## Screenshots
 
