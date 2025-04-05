@@ -5,10 +5,9 @@ An interactive AI-powered relationship coach designed to provide dating advice a
 ## Screenshots
 
 ![App Screenshot](ScreenshotPreview.png)  
-*Add screenshots of the app in use for better visual appeal*
 
 ![App Screenshot 2](ScreenshotMobilePreview.png)  
-*Another screenshot showcasing the webcam scanning feature or chatbot interface*
+*Mobile Webcam support not yet added*
 
 ## About the Project
 
