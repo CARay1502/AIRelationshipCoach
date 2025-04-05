@@ -27,7 +27,8 @@ This project is aimed at showcasing web development skills and AI integration fo
 
 - **Next.js**: React framework used for server-side rendering and API calls.
 - **Typescript**: Powerfull JS library used in conjunction with Next.js
-- **AI LLM API**: Powered by Google Gemini (**Gemini-flash-2.0-lite**).
+- **Gemini LLM API**: Powered by Google Gemini (**Gemini-flash-2.0-lite**).
+- **Google TTS API**: Text-to-Speech service from Google Cloud API.
 - **Webcam Integration**: Using React Webcam Library (currently no support for mobile devices).
 - **Styling**: Styled using TailwindCSS, CSS Modules and React Modules.
 
