@@ -1,14 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import Lottie from "lottie-react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import Animation from "@/app/Animation - 1743878247262.json";
 
 export default function Chatbot() {
   const [userInput, setUserInput] = useState<string>(""); // user input
   const [chatbotResponse, setChatbotResponse] = useState<string>("");
-
-
-
-  const lottieRef = useRef<any>(null); //lottie ref n shit
+  const lottieRef = useRef<LottieRefCurrentProps | null>(null); //lottie ref n shit
 
   //this initializes lottie file animation speed, its so stupuid
   useEffect(() => {
