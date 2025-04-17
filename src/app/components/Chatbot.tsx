@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import Animation from "@/app/Animation - 1743878247262.json";
 
 export default function Chatbot() {
-  const [userInput, setUserInput] = useState(""); // user input
+  const [userInput, setUserInput] = useState<string>(""); // user input
   const [chatbotResponse, setChatbotResponse] = useState<string>("");
 
 

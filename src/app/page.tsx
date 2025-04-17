@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import ScanResult from "./components/ScanResult";
 import Chatbot from "./components/Chatbot";
 
