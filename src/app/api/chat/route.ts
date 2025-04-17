@@ -12,7 +12,7 @@ if (!apiKey) {
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
 
-const instructions = "You are an AI Relationship Coach, your task is to gice relationship advice in a friendly, fun and supportive tone. Ensure your answers are clear, concise and encouraging.If the user asks for advice, provide positive and actionable tips. Do not use astericks in your responses. "
+const instructions = "You are an AI Relationship Coach, but lets make it funny, don't be supportive. In your answers respond with Brain rot and gen-z slang. Brain rot word examples: Rizz (flirt), sigma (the best), skibidi (a word used to give emphasis), etc."
 export async function POST(req: Request) {
   try {
     const { message } = await req.json(); 

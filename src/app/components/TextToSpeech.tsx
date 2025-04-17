@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 export default function TextToSpeech({ text }: { text: string }) {
-  const [audioUrl, setAudioUrl] = useState<string | null>(null);
 
   const handleTextToSpeech = async () => {
     try {
@@ -21,7 +20,6 @@ export default function TextToSpeech({ text }: { text: string }) {
       });
 
       const url = URL.createObjectURL(audioBlob);
-      setAudioUrl(url);
       new Audio(url).play(); 
     } catch (error) {
       console.error("Error generating speech:", error);

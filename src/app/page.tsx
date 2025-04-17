@@ -6,27 +6,11 @@ import Chatbot from "./components/Chatbot";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
-  const [prompt, setPrompt] = useState<string>("");
   const [startScan, setStartScan] = useState(false);
-  const [showScan, setShowScan] = useState<boolean>(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const res = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt }),
-    });
-
-    
-  };
 
   const handleStart = () => {
     setIsVisible(true);
-    setShowScan(true);
     setStartScan(true); // trigger scan process auto
   };
 

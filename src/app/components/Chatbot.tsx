@@ -5,8 +5,8 @@ import Animation from "@/app/Animation - 1743878247262.json";
 export default function Chatbot() {
   const [userInput, setUserInput] = useState(""); // user input
   const [chatbotResponse, setChatbotResponse] = useState<string>("");
-  const [audioUrl, setAudioUrl] = useState<string | null>(null);
-  const [isSpeaking, setIsSpeaking] = useState(false);
+
+
 
   const lottieRef = useRef<any>(null); //lottie ref n shit
 
@@ -42,11 +42,9 @@ export default function Chatbot() {
       const data = await response.json();
       console.log("Chatbot response: ", data);
       setChatbotResponse(data.response); 
-      setAudioUrl(data.audio); 
       setUserInput("");
 
       if (data.audio) {
-        setIsSpeaking(true);
         const audio = new Audio(data.audio);
         audio.play();
 
@@ -55,7 +53,6 @@ export default function Chatbot() {
         }
 
         audio.onended = () => {
-          setIsSpeaking(false);
           if (lottieRef.current) {
             lottieRef.current.setSpeed(0.1); 
           }
