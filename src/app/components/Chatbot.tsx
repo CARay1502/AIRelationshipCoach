@@ -1,20 +1,20 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import Animation from "@/app/Animation - 1743878247262.json";
 
 export default function Chatbot() {
-  const [userInput, setUserInput] = useState<string>(""); // user input
+  const [userInput, setUserInput] = useState<string>("");
   const [chatbotResponse, setChatbotResponse] = useState<string>("");
-  const lottieRef = useRef<LottieRefCurrentProps | null>(null); //lottie ref n shit
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const lottieRef = useRef<LottieRefCurrentProps | null>(null);
 
-  //this initializes lottie file animation speed, its so stupuid
   useEffect(() => {
     if (lottieRef.current) {
       lottieRef.current.setSpeed(0.1);
     }
   }, []);
 
-  // for enter key
   const handlePressKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -23,7 +23,7 @@ export default function Chatbot() {
   };
 
   const handleChatbotResponse = async () => {
-    if (!userInput.trim()) return; // no empty msg
+    if (!userInput.trim()) return;
 
     try {
       const response = await fetch("/api/chat", {
@@ -38,27 +38,30 @@ export default function Chatbot() {
 
       const data = await response.json();
       console.log("Chatbot response: ", data);
-      setChatbotResponse(data.response); 
+      setChatbotResponse(data.response);
+      setAudioUrl(data.audio || null); // Set audio URL separately
       setUserInput("");
-
-      if (data.audio) {
-        const audio = new Audio(data.audio);
-        audio.play();
-
-        if (lottieRef.current) {
-          lottieRef.current.setSpeed(1.2);
-        }
-
-        audio.onended = () => {
-          if (lottieRef.current) {
-            lottieRef.current.setSpeed(0.1); 
-          }
-        };
-      }
     } catch (error) {
       console.error("Error:", error);
     }
   };
+
+  useEffect(() => {
+    if (audioUrl && typeof window !== "undefined") {
+      const audio = new Audio(audioUrl);
+      audio.play();
+
+      if (lottieRef.current) {
+        lottieRef.current.setSpeed(1.2);
+      }
+
+      audio.onended = () => {
+        if (lottieRef.current) {
+          lottieRef.current.setSpeed(0.1);
+        }
+      };
+    }
+  }, [audioUrl]);
 
   return (
     <div>
@@ -68,7 +71,7 @@ export default function Chatbot() {
           loop={true}
           autoplay={true}
           lottieRef={lottieRef}
-          style={{ width: "150px", height: "150px" }} 
+          style={{ width: "150px", height: "150px" }}
         />
       </div>
 
