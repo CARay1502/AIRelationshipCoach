@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { TextToSpeechClient } from "@google-cloud/text-to-speech";
 import { protos } from "@google-cloud/text-to-speech";
 
-const googleCreds = JSON.parse(process.env.GOOGLE_CREDNETIALS_JSON!); // looks for google cred in vercel env
-const googleTTSClient = new TextToSpeechClient(googleCreds);
+const googleTTSClient = new TextToSpeechClient();
 
 export async function POST(req: NextRequest) {
   try {
