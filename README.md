@@ -1,14 +1,13 @@
 # AI Relationship Coach
 
-An interactive AI-powered relationship coach designed to provide dating advice and ratings through webcam-based user interaction and a chatbot interface.
+An interactive AI-powered relationship coach designed to provide dating advice and ratings through webcam-based user interaction and a chatbot interface. **NOT INTENDED FOR REAL WORLD RELATIONSHIP ADVICE.**
 
 ## Screenshots
 
-![App Screenshot](link_to_screenshot)  
-*Add screenshots of the app in use for better visual appeal*
+![App Screenshot](ScreenshotPreview.png)  
 
-![App Screenshot 2](link_to_screenshot)  
-*Another screenshot showcasing the webcam scanning feature or chatbot interface*
+![App Screenshot 2](ScreenshotMobilePreview.png)  
+*Mobile Webcam support not yet added*
 
 ## About the Project
 
@@ -28,28 +27,29 @@ This project is aimed at showcasing web development skills and AI integration fo
 
 - **Next.js**: React framework used for server-side rendering and API calls.
 - **Typescript**: Powerfull JS library used in conjunction with Next.js
-- **AI LLM API**: Powered by Google Gemini (**Gemini-flash-2.0-lite**).
+- **Gemini LLM API**: Powered by Google Gemini (**Gemini-flash-2.0-lite**).
+- **Google TTS API**: Text-to-Speech service from Google Cloud API.
 - **Webcam Integration**: Using React Webcam Library (currently no support for mobile devices).
 - **Styling**: Styled using TailwindCSS, CSS Modules and React Modules.
 
 ## Project Structure
 
 ```bash
-📂 Project Root
+📂 src\app 
 ├── 📂 components               # React components
-│   ├── Chatbot.js              # AI chatbot UI component
-│   ├── WebcamScanner.js        # Webcam scanning component
-├── 📂 pages                    # Next.js pages
-│   ├── index.js                # Home page (webcam and chatbot)
+│   ├── Chatbot.tsx              # AI chatbot UI component
+│   ├── ScanResult.tsx           # Webcam Scan Result UI component and Logic
+│   ├── TextToSpeech.tsx        # Google TTS ui component and logic
+├── page.tsx                    # Home page (webcam and chatbot)
+├── layout.tsx                  # layout for rendering pages
+├── global.css                  # css file, global imports and simple animation stuff
 ├── 📂 public                   # Public assets
-│   ├── images                  # Static images for UI
-├── 📂 styles                   # Global styles
-│   ├── globals.css             # Main CSS file
-├── 📂 utils                    # Helper functions
-│   ├── aiIntegration.js        # AI interaction logic
-│   ├── webcamUtils.js          # Webcam functionality helpers
-├── 📂 .env.local               # Local environment variables (e.g., API keys)
-
+│   ├── screenshots              # Static images + lottie file for UI
+├── 📂 api                      # api logic functions
+│   ├── chat/route.ts           # Google gemini api
+│   ├── text-to-speech/route.ts  # Google TTS api
+├── 📂 .env.local               # create for your own API keys
+```
 
 ## Run Locally
 
