@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { TextToSpeechClient } from "@google-cloud/text-to-speech";
-import { protos } from "@google-cloud/text-to-speech";
+import { TextToSpeechClient, protos } from "@google-cloud/text-to-speech";
 
-const googleTTSClient = new TextToSpeechClient();
+const googleTTSClient = new TextToSpeechClient({
+  credentials: {
+    client_email: process.env.GCP_CLIENT_EMAIL,
+    private_key: process.env.GCP_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+  },
+  projectId: process.env.GCP_PROJECT_ID,
+});
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,7 +22,6 @@ export async function POST(req: NextRequest) {
       voice: {
         languageCode: "en-US",
         name: "en-US-Chirp-HD-M",
-        
       },
       audioConfig: { audioEncoding: protos.google.cloud.texttospeech.v1.AudioEncoding.MP3 },
     };
@@ -28,7 +32,6 @@ export async function POST(req: NextRequest) {
       throw new Error("No audio content received from Google TTS.");
     }
 
-    // make sure audiocontent is uint8array before convert
     const audioBuffer =
       response.audioContent instanceof Uint8Array
         ? Buffer.from(response.audioContent).toString("base64")
