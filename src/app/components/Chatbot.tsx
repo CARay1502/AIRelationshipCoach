@@ -1,7 +1,13 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import dynamic from 'next/dynamic';
 import Animation from "@/app/Animation - 1743878247262.json";
+import { LottieRefCurrentProps } from "lottie-react";
+
+// Dynamically import Lottie with SSR disabled
+const Lottie = dynamic(() => import('lottie-react'), {
+  ssr: false, // This is the key - it prevents the component from loading during SSR
+});
 
 export default function Chatbot() {
   const [userInput, setUserInput] = useState<string>("");
@@ -66,13 +72,15 @@ export default function Chatbot() {
   return (
     <div>
       <div className="flex justify-center p-4">
-        <Lottie
-          animationData={Animation}
-          loop={true}
-          autoplay={true}
-          lottieRef={lottieRef}
-          style={{ width: "150px", height: "150px" }}
-        />
+        {typeof window !== 'undefined' && (
+          <Lottie
+            animationData={Animation}
+            loop={true}
+            autoplay={true}
+            lottieRef={lottieRef}
+            style={{ width: "150px", height: "150px" }}
+          />
+        )}
       </div>
 
       <div className="flex flex-row w-full">
