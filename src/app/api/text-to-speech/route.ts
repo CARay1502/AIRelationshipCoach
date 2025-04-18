@@ -1,3 +1,5 @@
+"use client";
+
 import { NextRequest, NextResponse } from "next/server";
 import { TextToSpeechClient } from "@google-cloud/text-to-speech";
 import { protos } from "@google-cloud/text-to-speech";

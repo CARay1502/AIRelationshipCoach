@@ -16,6 +16,8 @@ const ScanResult = ({ startScan }: { startScan: boolean }) => {
 
     const captureImage = async () => {
         try {
+            if (typeof window === 'undefined') return;
+            
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             const video = document.createElement("video");
             video.srcObject = stream;

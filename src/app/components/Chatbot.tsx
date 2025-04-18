@@ -39,7 +39,7 @@ export default function Chatbot() {
       const data = await response.json();
       console.log("Chatbot response: ", data);
       setChatbotResponse(data.response);
-      setAudioUrl(data.audio || null); // Set audio URL separately
+      setAudioUrl(data.audio || null); // set audio URL separately -> avoid ssr
       setUserInput("");
     } catch (error) {
       console.error("Error:", error);
