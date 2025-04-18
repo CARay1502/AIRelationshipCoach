@@ -1,7 +1,8 @@
 # AI Relationship Coach
 
 An interactive AI-powered relationship coach designed to provide dating advice and ratings through webcam-based user interaction and a chatbot interface. **NOT INTENDED FOR REAL WORLD RELATIONSHIP ADVICE.**
-
+## Update Note
+NextJS SSR can be tricky, make sure to review API's for browser specific usage. 
 ## Screenshots
 
 ![App Screenshot](ScreenshotPreview.png)  
